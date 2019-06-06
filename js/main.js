@@ -31,10 +31,32 @@ $(document).ready(function () {
             "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>"
         }
     );
-
-    new Cleave('.input-1', {
-        numericOnly: true,
-        blocks: [0, 2, 0, 4, 4],
-        delimiters: ["(", ")", " ", "-"]
-    });
+    if ($('.input-1').lenght) {
+        new Cleave('.input-1', {
+            numericOnly: true,
+            blocks: [0, 2, 0, 4, 4],
+            delimiters: ["(", ")", " ", "-"]
+        });
+    }
+    if ($('.input-1').lenght) {
+        new Cleave('.input-2', {
+            numericOnly: true,
+            blocks: [0, 2, 0, 4, 4],
+            delimiters: ["(", ")", " ", "-"]
+        });
+    }
+    if ($('.input-1').lenght) {
+        new Cleave('.input-3', {
+            numericOnly: true,
+            blocks: [0, 2, 0, 4, 4],
+            delimiters: ["(", ")", " ", "-"]
+        });
+    }
+    if ($('.input-1').lenght) {
+        new Cleave('.input-4', {
+            numericOnly: true,
+            blocks: [0, 2, 0, 4, 4],
+            delimiters: ["(", ")", " ", "-"]
+        });
+    }
 });

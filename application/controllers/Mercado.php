@@ -27,6 +27,7 @@ class Mercado extends CI_Controller
     {
         $this->form_validation->set_rules('nome', 'nome', 'required');
         $this->form_validation->set_rules('telefone', 'telefone', 'required');
+        $this->form_validation->set_rules('endereco', 'endereco', 'required');
         $this->form_validation->set_rules('email', 'email', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -38,29 +39,40 @@ class Mercado extends CI_Controller
             $data = array(
                 'tx_nome' => $this->input->post('nome'),
                 'tx_telefone' => $this->input->post('telefone'),
+                'tx_telefone2' => $this->input->post('telefone2'),
+                'tx_telefone3' => $this->input->post('telefone3'),
+                'tx_telefone4' => $this->input->post('telefone4'),
+                'tx_endereco' => $this->input->post('endereco'),
                 'tx_email' => $this->input->post('email')
             );
+
+            
             $config['upload_path']          = './uploads/logo';
             $config['allowed_types']        = 'gif|jpg|png';
             $config['max_width']            = 1024;
             $config['max_height']           = 768;
             $config['encrypt_name']         = true;
             $this->load->library('upload', $config);
+
             if (!$this->upload->do_upload('userfile')) {
-                $error = ($this->upload->display_errors());
-                $this->session->set_flashdata('mensagem', "$error");
-                redirect('Mercado/mostrarMercado');
-                exit;
+                $dataImage = $this->upload->display_errors();
             } else {
-                $data['img_logo'] = $this->upload->data('file_name');
+                $dataImage = $this->upload->data();     
+            }       
+            $imageUpload = false;
+            if ((is_array($dataImage)) && (array_key_exists("file_name", $dataImage)) && ($dataImage['file_name']) && ($dataImage['file_name'] <> '<')) {
+                $data['img_logo'] = $dataImage['file_name'];
+                $imageUpload = true;
             }
+           
             $mercado = $this->mercado_model->getMercado();
-            if ($this->mercado_model->update(1, $data)) {
-                unlink('uploads/logo/'.$mercado->img_logo);
+            if ($this->mercado_model->update(1, $data)) {                
+                if($imageUpload){
+                    unlink('uploads/logo/'.$mercado->img_logo);                
+                }
                 $this->session->set_flashdata('mensagem', 'Mercado alterado com sucesso!!!');
                 redirect('Mercado/mostrarMercado');
-            } else {
-                unlink($data['imagem']);
+            } else {                
                 $this->session->set_flashdata('mensagem', 'Erro ao alterar mercado...');
                 redirect('Mercado/Alterar');
             }
