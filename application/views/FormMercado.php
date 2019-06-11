@@ -62,3 +62,4 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
             </div>
         </div>
     </div>
+    <script src="<?= $this->config->base_url() ?>js/cleave.js"></script>

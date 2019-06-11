@@ -31,32 +31,19 @@ $(document).ready(function () {
             "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>"
         }
     );
-    if ($('.input-1').lenght) {
-        new Cleave('.input-1', {
-            numericOnly: true,
-            blocks: [0, 2, 0, 4, 4],
-            delimiters: ["(", ")", " ", "-"]
-        });
-    }
-    if ($('.input-1').lenght) {
-        new Cleave('.input-2', {
-            numericOnly: true,
-            blocks: [0, 2, 0, 4, 4],
-            delimiters: ["(", ")", " ", "-"]
-        });
-    }
-    if ($('.input-1').lenght) {
-        new Cleave('.input-3', {
-            numericOnly: true,
-            blocks: [0, 2, 0, 4, 4],
-            delimiters: ["(", ")", " ", "-"]
-        });
-    }
-    if ($('.input-1').lenght) {
-        new Cleave('.input-4', {
-            numericOnly: true,
-            blocks: [0, 2, 0, 4, 4],
-            delimiters: ["(", ")", " ", "-"]
-        });
-    }
+
+    $("#createDep").click(function (e) {
+        e.preventDefault();
+        var InnerHTML = '';
+        var quant = $('#rows').val();
+        for (var i = 1; i <= quant; i++) {
+            InnerHTML += '<tr><th>';
+            InnerHTML += '<input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" id="nome" name="nome[]">';
+            InnerHTML += '</th><th>';
+            InnerHTML += '<textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao[]" id="descricao" cols="30" rows="1"></textarea>';
+            InnerHTML += '</th></tr>';
+        }
+        $("#departamento").html(InnerHTML);
+    });
+
 });

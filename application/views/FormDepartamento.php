@@ -11,13 +11,33 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                 </div>
                 <div class="card-body">
                     <form action="" method="post" class="form" enctype="multipart/form-data">
-                        
-                        <div class="form-group py-2">
-                            <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" name="nome" value="<?= (isset($departamento))? $departamento->tx_nome : '';?>">
-                        </div>
-                        <div class="form-group py-2">
-                            <textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao" id="descricao" cols="30" rows="5"><?= (isset($departamento))? $departamento->tx_descricao : '';?></textarea>
-                        </div>
+                        <table class="table semdatatable">
+                            <?= (isset($departamento)) ? '' : '
+                            <thead>
+                                <tr>
+                                    <th width="50%">
+                                        <input class="form-control form-control-lg rounded-0" type="number" id="rows">
+                                    </th>
+                                    <th class="text-center" width="50%">
+                                        <button class="btn btn-outline-success" id="createDep" type="submit">Gerar</button>
+                                    </th>
+                                </tr>
+                            </thead>'
+                            ?>
+                            <tbody id="departamento">
+                                <?= (isset($departamento)) ? '
+                                <tr>
+                                    <th>
+                                        <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" id="nome" name="nome" value="'. $departamento->tx_nome .'">
+                                    </th>
+                                    <th>
+                                        <textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao" id="descricao" cols="30" rows="1">'. $departamento->tx_descricao .'</textarea>
+                                    </th>
+                                </tr>
+                                ' : '' 
+                                ?>
+                            </tbody>
+                        </table>
                         <hr>
                         <div class="form-group py-2 text-center">
                             <button class="btn btn-outline-success px-3 mr-3" type="submit">Enviar</button>

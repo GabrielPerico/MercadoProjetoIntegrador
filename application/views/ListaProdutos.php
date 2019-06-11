@@ -17,7 +17,6 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                         <table class="table table-hover text-center mb-0">
                             <thead class="bg-nav text-white">
                                 <tr>
-                                    <th scope="col">Imagem</th>
                                     <th scope="col">Nome</th>
                                     <th scope="col">Preço</th>
                                     <th scope="col">Descrição</th>
@@ -34,7 +33,6 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
 
                                     foreach ($produtos as $p) {
                                         echo '<tr>';
-                                        echo '<td class="align-middle table-cells" ><img class="img-fluid" style="max-height:60px;" src="' . $p->img_imagem . '"></td>';
                                         echo '<td class="align-middle table-cells" >' . $p->tx_nome . '</td>';
                                         echo '<td class="align-middle table-cells" >' . $p->vl_preco . '</td>';
                                         echo '<td class="align-middle table-cells" >' . $p->tx_descricao . '</td>';
@@ -43,7 +41,8 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                                         echo '<td class="align-middle table-cells" >' . $p->tx_nomeC . '</td>';
                                         echo '<td class="align-middle table-cells" >' . $p->tx_nomeF . '</td>';
                                         echo '<td class="align-middle table-cells" >';
-                                        echo '<a data-toggle="tooltip" title="Alterar" class="btn btn-outline-primary mr-3" href="' . $this->config->base_url() . 'Equipes/Alterar/' . $p->id_produto . '"><i class="fas fa-pencil-alt"></i></a>';
+                                        echo '<a data-toggle="tooltip" title="Alterar" class="btn btn-outline-primary mr-3" href="' . $this->config->base_url() . 'Produtos/Alterar/' . $p->id_produto . '"><i class="fas fa-pencil-alt"></i></a>';
+                                        echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Produtos/Deletar/' . $p->id_produto . '"><i class="fas fa-times-circle"></i></a>';
                                         echo '</td>';
                                         echo '</tr>';
                                     }

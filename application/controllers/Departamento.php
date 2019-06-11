@@ -24,8 +24,8 @@ class Departamento extends CI_Controller
 
     public function cadastrar()
     {
-        $this->form_validation->set_rules('nome', 'nome', 'required');
-        $this->form_validation->set_rules('descricao', 'descricao', 'required');
+        $this->form_validation->set_rules('nome[]', 'nome[]', 'required');
+        $this->form_validation->set_rules('descricao[]', 'descricao[]', 'required');
 
         if ($this->form_validation->run() == FALSE) {
 
@@ -34,18 +34,21 @@ class Departamento extends CI_Controller
             $this->load->view('Footer');
         } else {
 
-
-            $data = array(
-                'tx_nome' => $this->input->post('nome'),
-                'tx_descricao' => $this->input->post('descricao'),
-            );
-
-            if ($this->departamento_model->insert($data)) {
-                $this->session->set_flashdata('mensagem', 'Departamento cadastrado com sucesso!!!');
-                redirect('Departamento/Listar');
-            } else {
-                $this->session->set_flashdata('mensagem', 'Erro ao cadastrar departamento!!!');
-                redirect('Departamento/Cadastrar');
+            if (count($this->input->post("nome[]")) > 0) {
+                foreach ($this->input->post('nome[]') as $k => $v) {
+                    $data[] = array(
+                        'tx_nome' => $this->input->post("nome[$k]"),
+                        'tx_descricao' => $this->input->post("descricao[$k]")
+                    );
+                    $funciono = $this->departamento_model->insert($data[$k]);
+                }
+                if($funciono){
+                    $this->session->set_flashdata('mensagem', 'Departamento cadastrado com sucesso!!!');
+                    redirect('Departamento/Listar');
+                } else {
+                    $this->session->set_flashdata('mensagem', 'Erro ao cadastrar departamento!!!');
+                    redirect('Departamento/Cadastrar');
+                }
             }
         }
     }

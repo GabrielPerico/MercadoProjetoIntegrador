@@ -28,7 +28,7 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                             <textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao" id="descricao" cols="30" rows="5"><?= (isset($produtos)) ? $produtos->tx_descricao : ''; ?></textarea>
                         </div>
                         <div class="form-group py-2">
-                            <select class="form-control form-control-lg rounded-0" name="departamento" id="departamento">
+                            <select class="form-control form-control-lg rounded-0" name="categoria" id="categoria">
                                 <option <?= (isset($produtos)) ? '' : 'selected' ?> hidden disabled>* Selecione uma categoria</option>
                                 <?php
                                 if (count($categorias) > 0) {
@@ -44,7 +44,7 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                             </select>
                         </div>
                         <div class="form-group py-2">
-                            <select class="form-control form-control-lg rounded-0" name="departamento" id="departamento">
+                            <select class="form-control form-control-lg rounded-0" name="fornecedor" id="fornecedor">
                                 <option <?= (isset($produtos)) ? '' : 'selected' ?> hidden disabled>* Selecione um fornecedor</option>
                                 <?php
                                 if (count($fornecedores) > 0) {
@@ -58,17 +58,6 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                                 }
                                 ?>
                             </select>
-                        </div>
-                        <div class="form-group py-2">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" name="userfile" class="custom-file-input" id="logo" aria-describedby="inputGroupFileAddon01" value="<?= (isset($mercado)) ? 'uploads/logo/' . $mercado->img_logo : '' ?>">
-                                    <label class="custom-file-label" for="logo">* Imagem do Produto</label>
-                                </div>
-                            </div>
                         </div>
                         <hr>
                         <div class="form-group py-2 text-center">

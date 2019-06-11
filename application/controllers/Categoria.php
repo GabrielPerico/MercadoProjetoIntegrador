@@ -25,30 +25,33 @@ class Categoria extends CI_Controller
 
     public function cadastrar()
     {
-        $this->form_validation->set_rules('nome', 'nome', 'required');
-        $this->form_validation->set_rules('descricao', 'descricao', 'required');
-        $this->form_validation->set_rules('departamento', 'departamento', 'required');
+        $this->form_validation->set_rules('nome[]', 'nome[]', 'required');
+        $this->form_validation->set_rules('descricao[]', 'descricao[]', 'required');
+        $this->form_validation->set_rules('departamento[]', 'departamento[]', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data['departamentos'] = $this->categoria_model->getDepartamento();
             $this->load->view('Header');
-            $this->load->view('FormCategoria',$data);
+            $this->load->view('FormCategoria', $data);
             $this->load->view('Footer');
         } else {
 
-
-            $data = array(
-                'tx_nome' => $this->input->post('nome'),
-                'tx_descricao' => $this->input->post('descricao'),
-                'ref_departamento' => $this->input->post('departamento'),
-            );
-
-            if ($this->categoria_model->insert($data)) {
-                $this->session->set_flashdata('mensagem', 'Categoria cadastrado com sucesso!!!');
-                redirect('Categoria/Listar');
-            } else {
-                $this->session->set_flashdata('mensagem', 'Erro ao cadastrar Categoria!!!');
-                redirect('Categoria/Cadastrar');
+            if (count($this->input->post("nome[]")) > 0) {
+                foreach ($this->input->post('nome[]') as $k => $v) {
+                    $data[] = array(
+                        'tx_nome' => $this->input->post("nome[$k]"),
+                        'tx_descricao' => $this->input->post("descricao[$k]"),
+                        'ref_departamento' => $this->input->post("departamento[$k]")
+                    );
+                    $funciono = $this->categoria_model->insert($data[$k]);
+                }
+                if ($funciono) {
+                    $this->session->set_flashdata('mensagem', 'Categoria cadastrado com sucesso!!!');
+                    redirect('Categoria/Listar');
+                } else {
+                    $this->session->set_flashdata('mensagem', 'Erro ao cadastrar Categoria!!!');
+                    redirect('Categoria/Cadastrar');
+                }
             }
         }
     }
@@ -62,7 +65,8 @@ class Categoria extends CI_Controller
 
             if ($this->form_validation->run() == FALSE) {
                 $data['categorias'] = $this->categoria_model->getOne($id);
-                $data['departamentos'] = $this->categoria_model->getDepartamento();
+                $data['departamentos'] = json_encode($this->categoria_model->getDepartamento());
+
                 $this->load->view('Header');
                 $this->load->view('FormCategoria', $data);
                 $this->load->view('Footer');
