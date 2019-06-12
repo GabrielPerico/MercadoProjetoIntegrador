@@ -64,8 +64,8 @@ class Categoria extends CI_Controller
             $this->form_validation->set_rules('descricao', 'descricao', 'required');
 
             if ($this->form_validation->run() == FALSE) {
-                $data['categorias'] = $this->categoria_model->getOne($id);
-                $data['departamentos'] = json_encode($this->categoria_model->getDepartamento());
+                $data['categoria'] = $this->categoria_model->getOne($id);
+                $data['departamentos'] = $this->categoria_model->getDepartamento();
 
                 $this->load->view('Header');
                 $this->load->view('FormCategoria', $data);
@@ -73,7 +73,8 @@ class Categoria extends CI_Controller
             } else {
                 $data = array(
                     'tx_nome' => $this->input->post('nome'),
-                    'tx_descricao' => $this->input->post('descricao')
+                    'tx_descricao' => $this->input->post('descricao'),
+                    'ref_departamento' => $this->input->post("departamento")
                 );
                 if ($this->categoria_model->update($id, $data)) {
                     $this->session->set_flashdata('mensagem', 'Categoria alterada com sucesso!!!');

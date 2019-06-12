@@ -102,6 +102,7 @@ class Produtos extends CI_Controller
             redirect('Produtos/Listar');
         }
     }
+
     public function deletar($id)
     {
         if ($id > 0) {

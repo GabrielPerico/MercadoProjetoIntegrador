@@ -48,7 +48,7 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                                     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" name="userfile" class="custom-file-input" id="logo" aria-describedby="inputGroupFileAddon01" value="<?= (isset($mercado)) ? $this->config->base_url(). 'uploads/logo/' . $mercado->img_logo : '' ?>">
+                                    <input type="file" name="userfile" class="custom-file-input" id="logo" aria-describedby="inputGroupFileAddon01" value="<?= (isset($mercado)) ? $this->config->base_url() . 'uploads/logo/' . $mercado->img_logo : '' ?>">
                                     <label class="custom-file-label" for="logo">Selecione um Arquivo</label>
                                 </div>
                             </div>
@@ -62,4 +62,5 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
             </div>
         </div>
     </div>
-    <script src="<?= $this->config->base_url() ?>js/cleave.js"></script>
+</div>
+<script src="<?= $this->config->base_url() ?>js/cleave.js"></script>
