@@ -8,6 +8,9 @@
     max-width: 80px;
     max-height: 80px;
 }
+.preview{
+    max-height: 80px;
+}
 div.dataTables_length label {
     width: 800px;
     float: left;

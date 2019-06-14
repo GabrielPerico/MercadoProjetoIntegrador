@@ -9,4 +9,10 @@ class imagem_model extends CI_Model
         $query = $this->db->get('imagem_produto');
         return $query->result();
     }
+    public function update($id, $data = array())
+    {
+        $this->db->where('id_imagemProduto', $id);
+        $this->db->update('imagem_produto', $data);
+        return $this->db->affected_rows();
+    }
 }

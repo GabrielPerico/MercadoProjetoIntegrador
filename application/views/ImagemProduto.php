@@ -24,7 +24,6 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                             <tbody>
                                 <?php
                                 if (count($imagens) > 0) {
-
                                     foreach ($imagens as $i) {
                                         echo '<tr>';
                                         echo '<td class="align-middle table-cells" ><img class="img-fluid img-produto" src="' . $i->img_imagem . '"></td>';
@@ -34,7 +33,7 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                                         echo '</tr>';
                                     }
                                 } else {
-                                    echo '<tr><td class"align-middle" width="100%" colspan="9">Não há produtos registrados</td></tr>';
+                                    echo '<tr><td class"align-middle" width="100%" colspan="9">Não há imagens deste produto registradas</td></tr>';
                                 }
                                 ?>
                             </tbody>

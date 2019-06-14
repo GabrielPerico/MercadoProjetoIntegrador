@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     new Cleave('.input-1', {
         numericOnly: true,
         blocks: [0, 2, 0, 4, 4],
@@ -19,4 +20,5 @@ $(document).ready(function () {
         blocks: [0, 2, 0, 4, 4],
         delimiters: ["(", ")", " ", "-"]
     });
+    
 });

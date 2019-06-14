@@ -66,4 +66,35 @@ $(document).ready(function () {
 
         $("#categoria").append(InnerHTML);
     });
+
+    var imgNum = 0;
+    $("#createImg").click(function (e) {
+        e.preventDefault();
+        imgNum++;
+        var InnerHTML = '';
+        InnerHTML += '<tr><th class="align-middle">';
+        InnerHTML += '<div class="custom-file">';
+        InnerHTML += '<input type="file" class="custom-file-input" onchange="readURL(this,' + imgNum + ');" name="userfile[]" id="customFile' + imgNum + '">';
+        InnerHTML += '<label class="custom-file-label" for="customFile' + imgNum + '">Escolha um arquivo</label>';
+        InnerHTML += '</div>';
+        InnerHTML += '</th><th>';
+        InnerHTML += '<img src="http://denrakaev.com/wp-content/uploads/2015/03/no-image.png" alt="Sua imagem" class="preview" id="preview' + imgNum + '">';
+        InnerHTML += '</th></tr>';
+
+        $('#imagens').append(InnerHTML);
+    });
+
+
 });
+function readURL(input, metaNum) {
+    var preview = '#preview' + metaNum;
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $(preview).attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
