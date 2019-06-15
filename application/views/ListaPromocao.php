@@ -33,9 +33,9 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                                         echo '<td class="align-middle table-cells" >' . $p->dt_inicioDaPromocao . '</td>';
                                         echo '<td class="align-middle table-cells" >' . $p->dt_fimDaPromocao . '</td>';
                                         echo '<td class="align-middle table-cells" >';
-                                        echo '<a data-toggle="tooltip" title="Produtos da promoção" class="btn btn-outline-secondary mr-3" href="' . $this->config->base_url() . 'Imagem/Produto/' . $p->id_promocao . '"><i class="far fa-images"></i></a>';
-                                        echo '<a data-toggle="tooltip" title="Alterar" class="btn btn-outline-primary mr-3" href="' . $this->config->base_url() . 'Produtos/Alterar/' . $p->id_promocao . '"><i class="fas fa-pencil-alt"></i></a>';
-                                        echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Produtos/Deletar/' . $p->id_promocao . '"><i class="fas fa-times-circle"></i></a>';
+                                        echo '<a data-toggle="tooltip" title="Produtos da promoção" class="btn btn-outline-secondary mr-3" href="' . $this->config->base_url() . 'Promocao/ListarProdutos/' . $p->id_promocao . '"><i class="far fa-images"></i></a>';
+                                        echo '<a data-toggle="tooltip" title="Alterar" class="btn btn-outline-primary mr-3" href="' . $this->config->base_url() . 'Promocao/Alterar/' . $p->id_promocao . '"><i class="fas fa-pencil-alt"></i></a>';
+                                        echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Promocao/Deletar/' . $p->id_promocao . '"><i class="fas fa-times-circle"></i></a>';
                                         echo '</td>';
                                         echo '</tr>';
                                     }

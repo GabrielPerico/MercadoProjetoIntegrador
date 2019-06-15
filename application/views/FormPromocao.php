@@ -13,13 +13,15 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                     <form action="" method="post" class="form" enctype="multipart/form-data">
 
                         <div class="form-group py-2">
-                            <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" name="nome" value="<?= (isset($produtos)) ? $produtos->tx_nome : ''; ?>">
+                            <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" name="nome" value="<?= (isset($promocao)) ? $promocao->tx_nome : ''; ?>">
                         </div>
                         <div class="form-group py-2">
-                            <input placeholder="Ano-Mês-Dia Hora:Minutos:Segundos" class="form-control form-control-lg rounded-0 input-5" type="datetime-local" name="parcelamentoMaximo" value="<?= (isset($produtos)) ? $produtos->vl_preco : ''; ?>">
+                            <label for="dtInicio">Data de Inicio</label>
+                            <input type="text" class="form-control form-control-lg rounded-0" name="dtInicio" id="input-1" value="<?= (isset($promocao)) ? $promocao->dt_inicioDaPromocao : '' ?>">
                         </div>
                         <div class="form-group py-2">
-                            <textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao" id="descricao" cols="30" rows="5"><?= (isset($produtos)) ? $produtos->tx_descricao : ''; ?></textarea>
+                            <label for="dtFim">Data de Termino</label>
+                            <input type="text" class="form-control form-control-lg rounded-0" name="dtFim" id="input-fim" value="<?= (isset($promocao)) ? $promocao->dt_fimDaPromocao : '' ?>">
                         </div>
                         <hr>
                         <div class="form-group py-2 text-center">
@@ -32,3 +34,20 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
         </div>
     </div>
 </div>
+<div>
+
+    <script>
+        $(document).ready(function() {
+            new Cleave('#input-1', {
+                date: true,
+                numeralIntegerScale: 4,
+                blocks: [4, 2, 2, 2, 2, 2],
+                delimiters: ['-', '-', ' ', ':', ':']
+            });
+            new Cleave('#input-fim', {
+                date: true,
+                blocks: [4, 2, 2, 2, 2, 2],
+                delimiters: ['-', '-', ' ', ':', ':']
+            });
+        });
+    </script>

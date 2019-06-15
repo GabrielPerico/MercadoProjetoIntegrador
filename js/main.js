@@ -83,8 +83,6 @@ $(document).ready(function () {
 
         $('#imagens').append(InnerHTML);
     });
-
-
 });
 function readURL(input, metaNum) {
     var preview = '#preview' + metaNum;

@@ -3,7 +3,7 @@
 <script type="text/javascript" src="https://nosir.github.io/cleave.js/dist/cleave-phone.i18n.js"></script>
 <script src="<?= $this->config->base_url() ?>js/datatables.min.js"></script>
 <script src="<?= $this->config->base_url() ?>js/main.js"></script>
-
+</div>
 </body>
 
 </html>

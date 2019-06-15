@@ -20,5 +20,4 @@ $(document).ready(function () {
         blocks: [0, 2, 0, 4, 4],
         delimiters: ["(", ")", " ", "-"]
     });
-    
 });
