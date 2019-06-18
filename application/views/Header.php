@@ -42,6 +42,9 @@
             <a class="nav-link" href="<?= $this->config->base_url() ?>Promocao/Listar">Promoção</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="<?= $this->config->base_url() ?>Anuncio">Anuncio</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="<?= $this->config->base_url() ?>Mercado">Mercado</a>
           </li>
         </ul>

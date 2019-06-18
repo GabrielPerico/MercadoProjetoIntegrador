@@ -13,39 +13,32 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                     <form action="" method="post" class="form" enctype="multipart/form-data">
                         <table class="table semdatatable">
                             <tbody id="categoria">
-                                <?= (isset($categoria)) ?
-
-                                    '<tr>
+                                <tr>
                                     <th>
-                                    <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" name="nome" value="' . $categoria->tx_nome . '">
+                                        <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" name="nome<?= (isset($categoria)) ? '' : '[]' ?>" value="<?= (isset($categoria)) ? $categoria->tx_nome : '' ?>">
                                     </th>
                                     <th>
-                                    <textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao" id="descricao" cols="30" rows="1">' . $categoria->tx_descricao . '</textarea>
+                                        <textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao<?= (isset($categoria)) ? '' : '[]' ?>" id="descricao" cols="30" rows="1"><?= (isset($categoria)) ? $categoria->tx_descricao : '' ?></textarea>
                                     </th>
                                     <th>
-                                    <select class="form-control form-control-lg rounded-0" name="departamento" id="departamento"><option selected hidden disabled>* Selecione um departamento</option>'
-                                    : ''
-                                    
-                                ?>
-                                <?php
-                                if (isset($categoria)) {
-                                    
-                                    if (count($departamentos) > 0) {
-                                        foreach ($departamentos as $d) {
-                                            echo '<option ';
-                                            echo (isset($categoria) && $d->id_departamento == $categoria->ref_departamento) ? " selected " : "";
-                                            echo ' value="' . $d->id_departamento . '">' . $d->tx_nome . '</option>';
-                                        }
-                                    } else {
-                                        echo '<option value="" disabled>Não há departamentos cadastrados</option>';
-                                    }
-                                    echo '</select>';
-                                }
-                                ?>
+                                        <select class="form-control form-control-lg rounded-0" name="departamento<?= (isset($categoria)) ? '' : '[]' ?>" id="departamento">
+                                            <option selected hidden disabled>* Selecione um departamento</option>'
+                                            <?php
+                                            if (count($departamentos) > 0) {
+                                                foreach ($departamentos as $d) {
+                                                    echo '<option ';
+                                                    echo (isset($categoria) && $d->id_departamento == $categoria->ref_departamento) ? " selected " : "";
+                                                    echo ' value="' . $d->id_departamento . '">' . $d->tx_nome . '</option>';
+                                                }
+                                            } else {
+                                                echo '<option value="" disabled>Não há departamentos cadastrados</option>';
+                                            }
+                                            echo '</select>';
+                                            ?>
                             </tbody>
                         </table>
                         <div class="form-group text-center py-2">
-                            <?= isset($categoria) ? '' : '<button class="btn btn-outline-info mr-3" type="submit" id="createCat">+</button>'?>
+                            <?= isset($categoria) ? '' : '<button class="btn btn-outline-info mr-3" type="submit" id="createCat">+</button>' ?>
                         </div>
                         <hr>
                         <div class="form-group py-2 text-center">

@@ -13,17 +13,14 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                     <form action="" method="post" class="form" enctype="multipart/form-data">
                         <table class="table semdatatable">
                             <tbody id="departamento">
-                                <?= (isset($departamento)) ? '
                                 <tr>
                                     <th>
-                                    <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" id="nome" name="nome" value="'. $departamento->tx_nome .'">
+                                    <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" id="nome<?= (isset($departamento)) ? '' :'[]'?>" name="nome" value="<?= (isset($departamento)) ? $departamento->tx_nome : ''?>">
                                     </th>
                                     <th>
-                                    <textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao" id="descricao" cols="30" rows="1">'. $departamento->tx_descricao .'</textarea>
+                                    <textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao<?= (isset($departamento)) ? '' :'[]'?>" id="descricao" cols="30" rows="1"><?= (isset($departamento)) ? $departamento->tx_descricao : '' ?></textarea>
                                     </th>
                                     </tr>
-                                    ' : '' 
-                                    ?>
                             </tbody>
                         </table>
                         <div class="form-group py-2 text-center">

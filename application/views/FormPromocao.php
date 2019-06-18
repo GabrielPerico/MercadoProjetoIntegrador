@@ -2,12 +2,13 @@
 $mensagem = $this->session->flashdata('mensagem');
 echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $mensagem . '</div>' : '');
 ?>
+<link rel="stylesheet" href="<?= $this->config->base_url() ?>css/rome.min.css">
 <div class="container my-5 pt-4">
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card rounded-0 shadow-lg">
                 <div class="card-header bg-nav text-center text-white">
-                    <h3 class="mb-0">Registrar Produtos</h3>
+                    <h3 class="mb-0">Registrar Promoção</h3>
                 </div>
                 <div class="card-body">
                     <form action="" method="post" class="form" enctype="multipart/form-data">
@@ -17,11 +18,13 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                         </div>
                         <div class="form-group py-2">
                             <label for="dtInicio">Data de Inicio</label>
-                            <input type="text" class="form-control form-control-lg rounded-0" name="dtInicio" id="input-1" value="<?= (isset($promocao)) ? $promocao->dt_inicioDaPromocao : '' ?>">
+                            <input type="text" class="form-control form-control-lg rounded-0 input1" id="input1" value="">
+                            <input type="hidden" name="dtInicio">
                         </div>
                         <div class="form-group py-2">
                             <label for="dtFim">Data de Termino</label>
-                            <input type="text" class="form-control form-control-lg rounded-0" name="dtFim" id="input-fim" value="<?= (isset($promocao)) ? $promocao->dt_fimDaPromocao : '' ?>">
+                            <input type="text" class="form-control form-control-lg rounded-0 input2" id="input2" value="">
+                            <input type="hidden" name="dtFim">
                         </div>
                         <hr>
                         <div class="form-group py-2 text-center">
@@ -35,19 +38,7 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
     </div>
 </div>
 <div>
-
-    <script>
-        $(document).ready(function() {
-            new Cleave('#input-1', {
-                date: true,
-                numeralIntegerScale: 4,
-                blocks: [4, 2, 2, 2, 2, 2],
-                delimiters: ['-', '-', ' ', ':', ':']
-            });
-            new Cleave('#input-fim', {
-                date: true,
-                blocks: [4, 2, 2, 2, 2, 2],
-                delimiters: ['-', '-', ' ', ':', ':']
-            });
-        });
-    </script>
+    <meta name="data" content='<?=(isset($promocao))? json_encode($promocao) : '' ?>'>
+    <script src="<?= $this->config->base_url() ?>js/rome.min.js"></script>
+    <script src="<?= $this->config->base_url() ?>js/rome.js"></script>
+    

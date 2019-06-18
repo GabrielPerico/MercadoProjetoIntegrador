@@ -7,12 +7,12 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
         <div class="col-md-12 mb-3">
             <div class="card rounded-0 shadow-lg">
                 <div class="card-header bg-nav text-center text-white">
-                    <h3 class="mb-0">Imagens</h3>
+                    <h3 class="mb-0">Produtos da Promoção</h3>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive shadow">
                         <div class="text-center text-white">
-                            <a href="<?= $this->config->base_url() ?>Imagem/Cadastrar/<?= $id ?>" class="btn btn-outline-info">Cadastrar</a>
+                            <a href="<?= $this->config->base_url() ?>Promocao/CadastrarProduto/<?= $id ?>" class="btn btn-outline-info">Cadastrar</a>
                         </div>
                         <table class="table semdatatable table-hover text-center mb-0">
                             <thead class="bg-nav text-white">
@@ -32,7 +32,7 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                                         echo '<td class="align-middle table-cells" >' . $p->num_porcentagem . '</td>';
                                         echo '<td class="align-middle table-cells" >' . $p->tx_nomeP . '</td>';
                                         echo '<td class="align-middle table-cells" >';
-                                        echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Promocao/DeletarProduto/' . $p->id_pep . '/' . $p->id_produto . '"><i class="fas fa-times-circle"></i></a>';
+                                        echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Promocao/DeletarProduto/' . $id . '/' . $p->id_produto . '"><i class="fas fa-times-circle"></i></a>';
                                         echo '</td>';
                                         echo '</tr>';
                                     }

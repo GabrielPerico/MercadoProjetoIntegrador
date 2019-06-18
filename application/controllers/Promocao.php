@@ -59,7 +59,7 @@ class Promocao extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['promocao'] = $this->promocao_model->getOne($id);
                 $this->load->view('Header');
-                $this->load->view('FormPromocao',$data);
+                $this->load->view('FormPromocao', $data);
                 $this->load->view('Footer');
             } else {
                 $data = array(
@@ -67,16 +67,16 @@ class Promocao extends CI_Controller
                     'dt_inicioDaPromocao' => $this->input->post('dtInicio'),
                     'dt_fimDaPromocao' => $this->input->post('dtFim')
                 );
-                if ($this->fornecedores_model->update($id, $data)) {
-                    $this->session->set_flashdata('mensagem', 'Fornecedor alterada com sucesso!!!');
+                if ($this->promocao_model->update($id, $data)) {
+                    $this->session->set_flashdata('mensagem', 'Promoção alterada com sucesso!!!');
                     redirect('Promocao/Listar');
                 } else {
-                    $this->session->set_flashdata('mensagem', 'Erro ao alterar Fornecedor...');
+                    $this->session->set_flashdata('mensagem', 'Erro ao alterar Promoção...');
                     redirect('Promocao/Alterar/' . $id);
                 }
             }
         } else {
-            redirect('Fornecedores/Listar');
+            redirect('Promocao/Listar');
         }
     }
 
@@ -104,18 +104,50 @@ class Promocao extends CI_Controller
             $this->load->view('Footer');
         }
     }
+    public function cadastrarProduto($id)
+    {
+        if ($id > 0) {
+            $this->form_validation->set_rules('produto[]', 'produto[]', 'required');
+            $this->form_validation->set_rules('porcent[]', 'porcent[]', 'required');
 
+            if ($this->form_validation->run() == FALSE) {
+                $data['produtos'] = $this->promocao_model->getProdutos();
+                $data['id'] = $id;
+                $this->load->view('Header');
+                $this->load->view('FormProdutosPromocao', $data);
+                $this->load->view('Footer');
+            } else {
+                if (count($this->input->post("porcent[]")) > 0) {
+                    foreach ($this->input->post('porcent[]') as $k => $v) {
+                        $data[] = array(
+                            'num_porcentagem' => $this->input->post("porcent[$k]"),
+                            'ref_produtos' => $this->input->post("produto[$k]"),
+                            'ref_promocao' => $id
+                        );
+                        $funciono = $this->promocao_model->insertProdutos($data[$k]);
+                    }
+                    if ($funciono) {
+                        $this->session->set_flashdata('mensagem', 'Categoria cadastrado com sucesso!!!');
+                        redirect('Promocao/ListarProdutos/' . $id);
+                    } else {
+                        $this->session->set_flashdata('mensagem', 'Erro ao cadastrar Categoria!!!');
+                        redirect('Promocao/CadastrarProduto/' . $id);
+                    }
+                }
+            }
+        }
+    }
     public function deletarProduto($id, $idProduto)
     { {
             if ($id > 0 && $idProduto > 0) {
 
-                if ($this->promocao_model->deleteProduto($id)) {
+                if ($this->promocao_model->deleteProduto($id, $idProduto)) {
                     $this->session->set_flashdata('mensagem', 'Produto da promoção deletado com sucesso!!!');
                 } else {
                     $this->session->set_flashdata('mensagem', 'Erro ao deletar produto da promoção...');
                 }
             }
-            redirect('Promocao/ListaProdutosPromocao/' . $id);
+            redirect('Promocao/ListarProdutos/' . $id);
         }
     }
 }

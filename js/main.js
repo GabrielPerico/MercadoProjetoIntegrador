@@ -43,7 +43,38 @@ $(document).ready(function () {
         $("#departamento").append(InnerHTML);
     });
 
-
+    $("#createPro").click(function (e) {
+        e.preventDefault();
+        var produtos = $('meta[name=produtos]').attr('content');
+        produtos = JSON.parse(produtos);
+        var InnerHTML = '';
+        InnerHTML += '<tr><th>';
+        InnerHTML += '<input placeholder="* Porcentagem" class="form-control form-control-lg rounded-0" type="number" id="nome" name="porcent[]" value="">';
+        InnerHTML += '</th><th>';
+        InnerHTML += '<select class="form-control form-control-lg rounded-0" name="produto[]">';
+        InnerHTML += '<option selected hidden value="">Selecione um produto</option>';
+        produtos.forEach(function (element, index, array) {
+            if (index >= 0) {
+                InnerHTML += '<option value="' + array[index]['id_produto'] + '">' + array[index]['tx_nome'] + '</option>';
+            } else {
+                InnerHTML += '<option value="" disabled>Não há departamentos cadastrados</option>';
+            }
+        });
+        InnerHTML += '</select></th></tr>';
+        $("#produtos").append(InnerHTML);
+    });
+    $("#mostrar").click(function(e){
+        e.preventDefault();
+        if($("#mostrar").hasClass('btn-success')){
+            $("#mostrar").removeClass('btn-success')
+            $("#mostrar").addClass('btn-danger')
+            $("input[name=mostrar]").val(0);
+        }else{
+            $("#mostrar").removeClass('btn-danger')
+            $("#mostrar").addClass('btn-success')
+            $("input[name=mostrar]").val(1);
+        }
+    });
     $("#createCat").click(function (e) {
         e.preventDefault();
         var departamentos = $('meta[name=departamentos]').attr('content');
