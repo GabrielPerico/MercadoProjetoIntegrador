@@ -26,14 +26,14 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                                 if (count($imagens) > 0) {
                                     foreach ($imagens as $i) {
                                         echo '<tr>';
-                                        echo '<td class="align-middle table-cells" ><img class="img-fluid img-produto" src="' . $i->img_imagem . '"></td>';
+                                        echo '<td class="align-middle table-cells" ><img class="img-fluid img-produto" src="' . base_url('uploads/produtos/' . $i->img_imagem) . '"></td>';
                                         echo '<td class="align-middle table-cells" >';
-                                        echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Admin/Produtos/Deletar/' . $i->ref_produto . '"><i class="fas fa-times-circle"></i></a>';
+                                        echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Admin/Imagem/Deletar/' . $i->ref_produto .'/'. $i->id_imagemProduto . '"><i class="fas fa-times-circle"></i></a>';
                                         echo '</td>';
                                         echo '</tr>';
                                     }
                                 } else {
-                                    echo '<tr><td class"align-middle" width="100%" colspan="9">Não há imagens deste produto registradas</td></tr>';
+                                    echo '<tr><td class"align-middle" width="100%" colspan="2">Não há imagens deste produto registradas</td></tr>';
                                 }
                                 ?>
                             </tbody>

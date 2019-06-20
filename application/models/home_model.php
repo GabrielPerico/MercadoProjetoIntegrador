@@ -35,4 +35,5 @@ class home_model extends CI_Model
         $query = $this->db->get('mercado');
         return $query->row();
     }
+    
 }

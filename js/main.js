@@ -105,7 +105,7 @@ $(document).ready(function () {
         var InnerHTML = '';
         InnerHTML += '<tr><th class="align-middle">';
         InnerHTML += '<div class="custom-file">';
-        InnerHTML += '<input type="file" class="custom-file-input" onchange="readURL(this,' + imgNum + ');" name="userfile[]" id="customFile' + imgNum + '">';
+        InnerHTML += '<input type="file" class="custom-file-input" onchange="readURL(this,' + imgNum + ');" name="files[]" id="customFile' + imgNum + '">';
         InnerHTML += '<label class="custom-file-label" for="customFile' + imgNum + '">Escolha um arquivo</label>';
         InnerHTML += '</div>';
         InnerHTML += '</th><th>';
