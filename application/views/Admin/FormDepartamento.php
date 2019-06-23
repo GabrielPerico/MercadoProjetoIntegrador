@@ -15,7 +15,7 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                             <tbody id="departamento">
                                 <tr>
                                     <th>
-                                    <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" id="nome<?= (isset($departamento)) ? '' :'[]'?>" name="nome" value="<?= (isset($departamento)) ? $departamento->tx_nome : ''?>">
+                                    <input placeholder="* Nome" class="form-control form-control-lg rounded-0" type="text" id="nome" name="nome<?= (isset($departamento)) ? '' :'[]'?>" value="<?= (isset($departamento)) ? $departamento->tx_nome : ''?>">
                                     </th>
                                     <th>
                                     <textarea placeholder="* Descrição" class="form-control form-control-lg rounded-0" name="descricao<?= (isset($departamento)) ? '' :'[]'?>" id="descricao" cols="30" rows="1"><?= (isset($departamento)) ? $departamento->tx_descricao : '' ?></textarea>

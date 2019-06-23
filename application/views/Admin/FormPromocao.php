@@ -19,12 +19,12 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                         <div class="form-group py-2">
                             <label for="dtInicio">Data de Inicio</label>
                             <input type="text" class="form-control form-control-lg rounded-0 input1" id="input1" value="">
-                            <input type="hidden" name="dtInicio">
+                            <input type="hidden" name="dtInicio" value="">
                         </div>
                         <div class="form-group py-2">
                             <label for="dtFim">Data de Termino</label>
                             <input type="text" class="form-control form-control-lg rounded-0 input2" id="input2" value="">
-                            <input type="hidden" name="dtFim">
+                            <input type="hidden" name="dtFim" value="">
                         </div>
                         <hr>
                         <div class="form-group py-2 text-center">

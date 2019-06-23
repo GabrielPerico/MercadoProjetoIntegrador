@@ -1,11 +1,23 @@
-$(document).ready(function () {
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        nav: true,
-        autoWidth: true,
-        autoHeight: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true
-    })
+$(document).ready(function() {
+	$(".owl-carousel").owlCarousel({
+		items: 1,
+		loop: true,
+		nav: true,
+		autoplay: true,
+		margin: 10,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		autoHeightClass: "owl-height"
+	});
+	$(".owl-carousel-2").owlCarousel({
+		items: 16,
+		loop: true,
+		nav: true,
+		autoplay: true,
+		margin: 10,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		autoHeightClass: "owl-height"
+	});
+
 });

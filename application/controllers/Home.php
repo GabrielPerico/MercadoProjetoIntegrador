@@ -17,13 +17,13 @@ class Home extends CI_Controller
     public function listar()
     {
         $data['anuncios'] = $this->home_model->getAnuncios();
-        $data['produtos'] = $this->home_model->getProdutos();
-        $data['promocao'] = $this->home_model->getPromocao();
+        $data['produtosN'] = $this->home_model->getProdutosNovos();
+        $data['produtosP'] = $this->home_model->getProdutosPromocao();
         $data['departamentos'] = $this->home_model->getDepartamentos();
         $data['categorias'] = $this->home_model->getCategorias();
         $data['mercado'] = $this->home_model->getMercado();
         $this->load->view('Header', $data);
-        $this->load->view('Home', $data);
-       // $this->load->view('Footer');
+        $this->load->view('Home');
+        $this->load->view('Footer');
     }
 }

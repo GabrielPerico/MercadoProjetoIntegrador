@@ -149,13 +149,8 @@ a:hover {
 
 .hover-bg:hover {
   background: #007bff;
-  /* For browsers that do not support gradients */
-  /* For Safari 5.1 to 6.0 */
-  /* For Opera 11.1 to 12.0 */
-  /* For Firefox 3.6 to 15 */
   background: -webkit-gradient(linear, left top, right bottom, from(#007bff), to(#007bff));
   background: linear-gradient(to bottom right, #007bff, #007bff);
-  /* Standard syntax */
   -webkit-transition: .5s;
   transition: .5s; }
 
@@ -164,8 +159,6 @@ a:hover {
   transition: .5s;
   -webkit-transform: scaleX(1);
           transform: scaleX(1); }
-
-/* ========== input with icon ==========  */
 .input-icon {
   position: relative; }
   .input-icon i + input, .input-icon i + select {
@@ -182,8 +175,6 @@ a:hover {
 
 .form-inline .form-control-sm[type="number"] {
   max-width: 100px; }
-
-/* ========== borders ========== */
 .border {
   border: 1px solid #dee2e6; }
 
@@ -204,8 +195,6 @@ a:hover {
 
 .round {
   border-radius: 200px; }
-
-/* ============== spacing ============== */
 .padding-y {
   padding-top: 32px;
   padding-bottom: 32px; }
@@ -316,7 +305,6 @@ figure {
 .form-noborder select.form-control-lg:not([size]):not([multiple]) {
   height: 2.875rem; }
 
-/* all clearfix */
 article:after,
 .form-group:after {
   display: block;
@@ -332,7 +320,6 @@ article:after,
   border-width: 0 0 0 1px;
   border-style: solid; }
 
-/* -------------------- small grid gutter --------------------- */
 .row-sm {
   margin-right: -7px;
   margin-left: -7px;
@@ -357,16 +344,12 @@ article:after,
 
 .bg-grad-primary {
   background: #3395ff;
-  /* For browsers that do not support gradients */
-  /* For Safari 5.1 to 6.0 */
-  /* For Opera 11.1 to 12.0 */
-  /* For Firefox 3.6 to 15 */
   background: -webkit-gradient(linear, left top, right bottom, from(#0062cc), to(#3395ff));
   background: linear-gradient(to bottom right, #0062cc, #3395ff);
-  /* Standard syntax */ }
-
+}
 .bg {
-  background-color: #f8f8f8 !important; }
+  background-color: #f8f8f8 !important; 
+}
 
 .bg2 {
   background-color: #eceded !important; }
@@ -410,17 +393,12 @@ article:after,
     -webkit-transition: .5s;
     transition: .5s;
     background: #6c757d;
-    /* For browsers that do not support gradients */
-    /* For Safari 5.1 to 6.0 */
-    /* For Opera 11.1 to 12.0 */
-    /* For Firefox 3.6 to 15 */
     background: -webkit-gradient(linear, left top, right bottom, from(#007bff), to(#6c757d));
     background: linear-gradient(to bottom right, #007bff, #6c757d);
-    /* Standard syntax */ }
+  }
   .overlay-grad:hover:before {
     opacity: .9; }
 
-/* --------------------- titles ---------------------- */
 .section-heading {
   margin-bottom: 20px;
   margin-top: 10px; }
@@ -450,7 +428,6 @@ article:after,
   height: 40px;
   line-height: 20px; }
 
-/* ==================  title element ================ */
 .heading-line {
   position: relative; }
   .heading-line .title-section {
@@ -481,7 +458,6 @@ article:after,
 .black, .dark {
   color: #000; }
 
-/* ==================  title helpers ================ */
 .rtl {
   direction: rtl; }
 
@@ -494,10 +470,6 @@ article:after,
 .lh-lg {
   line-height: 1.6; }
 
-/*! 
- * grid for 24 of 1 
- * made by bootstrap-ecommerce.com
-*/
 .col-1-24 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 4.1666666667%;
@@ -1571,12 +1543,10 @@ article:after,
   padding-right: 15px;
   padding-left: 15px; }
 
-/* nogutter for 24 grid cols */
 .no-gutters > [class*="col-"] {
   padding-right: 0 !important;
   padding-left: 0 !important; }
 
-/* ================== SECTIONS =================== */
 .navbar-top {
   padding: 0; }
 
@@ -1596,7 +1566,6 @@ article:after,
   padding-top: 7px;
   padding-bottom: 7px; }
 
-/* ================== header main ==================  */
 .header-main {
   padding-top: 1rem;
   padding-bottom: 1rem; }
@@ -1628,9 +1597,6 @@ article:after,
     top: -3px;
     right: -10px; }
 
-/* desktop only */
-/* desktop only .end */
-/* ================ SECTION-FOOTER ==================  */
 .section-footer ul a {
   color: inherit; }
 
@@ -1640,8 +1606,6 @@ article:after,
 .footer-bottom {
   padding: 15px 0; }
 
-/* ================== PAGES =================== */
-/* ================ PAGES HEADER ================== */
 .section-pagetop {
   padding: 45px 0;
   background-repeat: no-repeat;
@@ -1649,8 +1613,6 @@ article:after,
   .section-pagetop .title-page {
     color: #fff;
     opacity: .6; }
-
-/* ================== PAGE DETAILS ==================  */
 .gallery-wrap .img-big-wrap {
   margin-bottom: 10px;
   overflow: hidden;
@@ -1687,7 +1649,6 @@ article:after,
       cursor: -webkit-zoom-in;
       cursor: zoom-in; }
 
-/* ================== COMPONENTS =================== */
 .owl-prev, .owl-next {
   z-index: 9;
   top: 50%;
@@ -1703,7 +1664,6 @@ article:after,
   right: -30px;
   content: ">"; }
 
-/* slider main */
 .slider-main .owl-prev, .slider-main .owl-next {
   padding: 18px 7px;
   color: #FFF;
@@ -1723,7 +1683,6 @@ article:after,
     -o-object-fit: cover;
        object-fit: cover; }
 
-/* slide items  */
 .slide-items .owl-prev, .slide-items .owl-next {
   top: 42%; }
 
@@ -1802,7 +1761,6 @@ article:after,
 .list-inline-item {
   vertical-align: middle; }
 
-/* --------- description list --------*/
 [class*="dlist-"] {
   margin-bottom: 5px; }
   [class*="dlist-"] dd {
@@ -1819,13 +1777,11 @@ article:after,
   margin-left: 120px;
   vertical-align: baseline; }
 
-/* -------------------- list.row--------------------- */
 ul.row, ul.row-sm {
   list-style: none;
   padding: 0;
   margin-bottom: 0; }
 
-/* ================= lists ================= */
 [class*="list-"] li:after {
   visibility: hidden;
   display: block;
@@ -1903,8 +1859,7 @@ ul.row, ul.row-sm {
     font-size: 13px; }
 
 .card-product {
-  margin-bottom: 1rem;
-  /* btn-overlay-bottom */ }
+  margin-bottom: 1rem;}
   .card-product:after {
     content: "";
     display: table;
@@ -2083,7 +2038,6 @@ ul.row, ul.row-sm {
   .card-group-item:last-child {
     border-bottom: 0; }
 
-/* ====================== shopping-cart ==================== */
 .shopping-cart-wrap img {
   max-width: 100px; }
 .shopping-cart-wrap thead th {
@@ -2096,7 +2050,6 @@ ul.row, ul.row-sm {
   margin-right: 5px;
   display: block; }
 
-/* ====================== block ==================== */
 .box {
   padding: 1rem 1.2rem;
   display: block;
@@ -2105,11 +2058,9 @@ ul.row, ul.row-sm {
   -webkit-box-shadow: 0 1px 3px rgba(51, 51, 51, 0.1);
           box-shadow: 0 1px 3px rgba(51, 51, 51, 0.1); }
 
-/* --------- media element --------*/
 .media .img-wrap {
   margin-right: 1rem; }
 
-/* =================  ELEMENTS FOR PRODUCT =================== */
 .badge-new {
   top: 7px;
   left: 7px;
@@ -2151,7 +2102,6 @@ ul.row, ul.row-sm {
     top: 36px;
     width: 0; }
 
-/* ================= RATINGS ============== */
 .label-rating {
   margin-right: 10px;
   display: inline-block;
@@ -2165,7 +2115,6 @@ ul.row, ul.row-sm {
     color: #999;
     margin-left: 5px; }
 
-/* rating-list */
 .rating-stars {
   margin-right: 10px;
   display: inline-block;
@@ -2249,5 +2198,3 @@ ul.row, ul.row-sm {
   .menu-category li:hover .submenu {
     display: block;
     margin-left: 0px; }
-
-/*# sourceMappingURL=ui.css.map */

@@ -43,7 +43,7 @@ class ADMpromocao_model extends CI_Model
     public function deleteProduto($id, $idProduto)
     {
         $this->db->where('ref_promocao', $id);
-        $this->db->where('ref_produtos', $idProduto);
+        $this->db->where('ref_produto', $idProduto);
         $this->db->delete('produtos_em_promocao');
         return $this->db->affected_rows();
     }
@@ -51,7 +51,7 @@ class ADMpromocao_model extends CI_Model
     {
         $this->db->select('produto.id_produto,produtos_em_promocao.num_porcentagem,promocao.id_promocao,produto.tx_nome,promocao.tx_nome as tx_nomeP,produtos_em_promocao.id_pep');
 
-        $this->db->join('produto', 'produtos_em_promocao.ref_produtos = produto.id_produto', 'inner');
+        $this->db->join('produto', 'produtos_em_promocao.ref_produto = produto.id_produto', 'inner');
         $this->db->join('promocao', 'produtos_em_promocao.ref_promocao = promocao.id_promocao', 'inner');
         $this->db->where('ref_promocao', $id);
         $query = $this->db->get('produtos_em_promocao');

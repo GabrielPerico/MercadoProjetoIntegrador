@@ -123,7 +123,7 @@ class Promocao extends CI_Controller
                     foreach ($this->input->post('porcent[]') as $k => $v) {
                         $data[] = array(
                             'num_porcentagem' => $this->input->post("porcent[$k]"),
-                            'ref_produtos' => $this->input->post("produto[$k]"),
+                            'ref_produto' => $this->input->post("produto[$k]"),
                             'ref_promocao' => $id
                         );
                         $funciono = $this->ADMpromocao_model->insertProdutos($data[$k]);

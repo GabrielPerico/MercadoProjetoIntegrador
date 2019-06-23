@@ -35,8 +35,6 @@ class Anuncio extends CI_Controller
             );
             $config['upload_path']          = './uploads/anuncios';
             $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_width']            = 1024;
-            $config['max_height']           = 768;
             $config['encrypt_name']         = true;
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('userfile')) {
