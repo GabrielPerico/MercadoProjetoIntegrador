@@ -38,10 +38,10 @@
                         $count = 0;
                         foreach ($departamentos as $d) {
                             if ($count < 6) {
-                                echo '<li> <a class="text-dark text-decoration-none" href="' . base_url('Departamento/' . $d->id_departamento) . '">' . $d->tx_nome . '</a></li>';
+                                echo '<li> <a class="text-dark text-decoration-none" href="' . base_url('Departamento/Listar/' . $d->id_departamento) . '">' . $d->tx_nome . '</a></li>';
                                 $count++;
                             } elseif ($count > 6) {
-                                echo '<li> <a class="text-dark text-decoration-none" href="' . base_url('Departamento/' . $d->id_departamento) . '">' . $d->tx_nome . '</a></li>';
+                                echo '<li> <a class="text-dark text-decoration-none" href="' . base_url('Departamento/Listar/' . $d->id_departamento) . '">' . $d->tx_nome . '</a></li>';
                             } else {
                                 echo '<li class="has-submenu"> <a class="text-dark text-decoration-none" href="#">Outros <i class="icon-arrow-right pull-right"></i></a>';
                                 echo '<ul class="submenu">';
@@ -93,7 +93,7 @@
             foreach ($produtosN as $p) {
                 echo '<div class="col-md-2">';
                 echo '<figure class="card card-product">';
-                echo '<a href="'. base_url('Produto/'.$p->id_produto) .'">';
+                echo '<a href="'. base_url('Produto/Info/'.$p->id_produto) .'">';
                 echo '<div class="img-wrap"> <img src="' . base_url('uploads/produtos/') . $p->img_imagem . '"></div>';
                 echo '<figcaption class="info-wrap">';
                 echo '<h6 class="title ">' . $p->tx_nome . '</h6>';
@@ -142,15 +142,15 @@
             <?php
             foreach ($produtosP as $p) {
                 echo '<div class="col-md-2">';
-                echo '<figure class="card card-product">';
+                echo '<figure class="card card-product"><a href="'. base_url('Produto/Info/'.$p->id_produto) .'">';
                 echo '<div class="img-wrap"> <img src="' . base_url('uploads/produtos/') . $p->img_imagem . '"></div>';
                 echo '<figcaption class="info-wrap">';
-                echo '<h6 class="title "><a href="#">' . $p->tx_nomeP . '</a></h6>';
+                echo '<h6 class="title ">' . $p->tx_nomeP . '</h6>';
                 echo '<div class="price-wrap">';
                 echo '<span class="price-new">$'. ($p->vl_preco-($p->vl_preco/(100/$p->num_porcentagem))) .'</span>';
                 echo '<del class="price-old">$' . $p->vl_preco . '</del>';
                 echo '</div>';
-                echo '</figcaption></figure>';
+                echo '</figcaption></a></figure>';
                 echo '</div>';
             }
             ?>
