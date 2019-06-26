@@ -11,6 +11,8 @@ class ADMdepartamento_model extends CI_Model
     }
     public function getAll()
     {
+        $this->db->select('departamento.*,(SELECT count(categoria.id_categoria) FROM categoria WHERE ref_departamento = departamento.id_departamento) as num_categorias');
+        
         $query = $this->db->get('departamento');
         return $query->result();
     }

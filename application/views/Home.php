@@ -10,13 +10,13 @@
                 <div class="collapse navbar-collapse" id="main_nav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"> Home </a>
+                            <a class="nav-link" href="<?= base_url() ?>"> Home </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Novos Produtos</a>
+                            <a class="nav-link" href="<?= base_url('NovosProdutos/Listar') ?>">Novos Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Promoções</a>
+                            <a class="nav-link" href="<?= base_url('ProdutosEmPromocao/Listar') ?>">Promoções</a>
                         </li>
                     </ul>
                 </div>
@@ -94,7 +94,7 @@
                 echo '<div class="col-md-2">';
                 echo '<figure class="card card-product">';
                 echo '<a href="'. base_url('Produto/Info/'.$p->id_produto) .'">';
-                echo '<div class="img-wrap"> <img src="' . base_url('uploads/produtos/') . $p->img_imagem . '"></div>';
+                echo '<div class="img-wrap pt-5"> <img src="' . base_url('uploads/produtos/') . $p->img_imagem . '"></div>';
                 echo '<figcaption class="info-wrap">';
                 echo '<h6 class="title ">' . $p->tx_nome . '</h6>';
                 echo '<div class="price-wrap">';
@@ -143,7 +143,7 @@
             foreach ($produtosP as $p) {
                 echo '<div class="col-md-2">';
                 echo '<figure class="card card-product"><a href="'. base_url('Produto/Info/'.$p->id_produto) .'">';
-                echo '<div class="img-wrap"> <img src="' . base_url('uploads/produtos/') . $p->img_imagem . '"></div>';
+                echo '<div class="img-wrap pt-5"> <img src="' . base_url('uploads/produtos/') . $p->img_imagem . '"></div>';
                 echo '<figcaption class="info-wrap">';
                 echo '<h6 class="title ">' . $p->tx_nomeP . '</h6>';
                 echo '<div class="price-wrap">';

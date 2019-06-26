@@ -16,6 +16,7 @@ class Departamento extends CI_Controller
             $data['categorias'] = $this->departamento_model->getCategoria($id);
             $data['mercado'] = $this->departamento_model->getMercado();
             $data['produtos'] = $this->departamento_model->getProdutos();
+            $data['departamentos'] = $this->departamento_model->getDepartamentos();
             $this->load->view('Header', $data);
             $this->load->view('Departamento');
             $this->load->view('Footer');

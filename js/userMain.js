@@ -9,5 +9,5 @@ $(document).ready(function () {
 		autoplayHoverPause: true,
 		autoHeightClass: "owl-height"
 	});
-
 });
+

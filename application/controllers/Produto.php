@@ -13,6 +13,7 @@ class Produto extends CI_Controller
             $data['imagens'] = $this->produto_model->getImagens($id);
             $data['produto'] = $this->produto_model->getProduto($id);
             $data['mercado'] = $this->produto_model->getMercado();
+            $data['departamentos'] = $this->produto_model->getDepartamentos();
             $this->load->view('Header', $data);
             $this->load->view('Produto');
             $this->load->view('Footer');

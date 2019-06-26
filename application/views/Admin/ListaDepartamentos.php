@@ -33,7 +33,11 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                                         echo '<td class="align-middle table-cells" >' . $d->tx_descricao . '</td>';
                                         echo '<td class="align-middle table-cells" >';
                                         echo '<a data-toggle="tooltip" title="Alterar" class="btn btn-outline-primary mr-3" href="' . $this->config->base_url() . 'Admin/Departamento/Alterar/' . $d->id_departamento . '"><i class="fas fa-pencil-alt"></i></a>';
-                                        echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Admin/Departamento/Deletar/' . $d->id_departamento . '"><i class="fas fa-times-circle"></i></a>';
+                                        if($d->num_categorias > 0){
+                                            echo '<a class="disabled btn btn-outline-danger mr-3" tabindex="0" data-toggle="tooltip" title="Há categorias cadastradas nesse departamento!"><i class="fas fa-times-circle"></i></a>';
+                                        }else{
+                                            echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Admin/Departamento/Deletar/' . $d->id_departamento . '"><i class="fas fa-times-circle"></i></a>';
+                                        }
                                         echo '</td>';
                                         echo '</tr>';
                                     }

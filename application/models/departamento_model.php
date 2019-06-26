@@ -25,4 +25,11 @@ class departamento_model extends CI_Model
         $query = $this->db->get('produto');
         return $query->result();
     }
+    public function getDepartamentos()
+    {
+        
+        $this->db->order_by('tx_nome', 'asc');
+        $query = $this->db->get('departamento');
+        return $query->result();
+    }
 }

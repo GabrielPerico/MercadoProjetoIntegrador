@@ -39,7 +39,6 @@ class Usuario extends CI_Controller
             }
         }
     }
-
     public function sair()
     {
         $this->session->sess_destroy();

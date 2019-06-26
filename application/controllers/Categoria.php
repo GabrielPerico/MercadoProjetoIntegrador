@@ -16,6 +16,7 @@ class Categoria extends CI_Controller
             $data['categoria'] = $this->categoria_model->getCategoria($id);
             $data['produtos'] = $this->categoria_model->getProdutos($id);
             $data['mercado'] = $this->categoria_model->getMercado();
+            $data['departamentos'] = $this->categoria_model->getDepartamentos();
             $this->load->view('Header', $data);
             $this->load->view('Categoria');
             $this->load->view('Footer');
