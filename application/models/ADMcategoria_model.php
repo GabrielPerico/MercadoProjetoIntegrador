@@ -15,7 +15,7 @@ class ADMcategoria_model extends CI_Model
     }
     public function getAll()
     {
-        $this->db->select('categoria.*,departamento.tx_nome as tx_nomeD');
+        $this->db->select('categoria.*,departamento.tx_nome as tx_nomeD ,(SELECT count(produto.ref_categoria) FROM produto WHERE ref_categoria = id_categoria) as num_produtos');
         
         $this->db->join('departamento', 'departamento.id_departamento = categoria.ref_departamento', 'inner');
         $query = $this->db->get('categoria');

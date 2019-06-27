@@ -111,7 +111,7 @@
             ?>
             <div class="col-md-2">
                 <figure class="card card-product">
-                    <a href="<?= base_url('NovosProdutos/Lista') ?>">
+                    <a href="<?= base_url('NovosProdutos/Listar') ?>">
                         <div class="img-wrap">
                             <img src="<?= base_url('uploads/vejamais.png') ?>">
                         </div>
@@ -156,7 +156,7 @@
             ?>
             <div class="col-md-2">
                 <figure class="card card-product">
-                    <a href="<?= base_url('ProdutosEmPromocao/Lista') ?>">
+                    <a href="<?= base_url('ProdutosEmPromocao/Listar') ?>">
                         <div class="img-wrap">
                             <img src="<?= base_url('uploads/vejamais.png') ?>">
                         </div>

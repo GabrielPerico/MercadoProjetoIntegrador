@@ -40,6 +40,8 @@ class ADMproduto_model extends CI_Model
     }
     public function delete($id)
     {
+        $this->db->where('ref_produto', $id);
+        $this->db->delete('imagem_produto');
         $this->db->where('id_produto', $id);
         $this->db->delete('produto');
         return $this->db->affected_rows();

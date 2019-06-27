@@ -4,7 +4,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class ADMfornecedores_model extends CI_Model
 {
     public function getAll()
-    {
+    {   
+        $this->db->select('fornecedor.*,(SELECT count(produto.ref_fornecedor) FROM produto WHERE ref_fornecedor = id_fornecedor) as num_produtos');
+        
         $query = $this->db->get('fornecedor');
         return $query->result();
     }

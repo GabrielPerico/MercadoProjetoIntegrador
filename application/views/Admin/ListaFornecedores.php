@@ -37,7 +37,11 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                                         echo '<td class="align-middle table-cells" >' . $f->tx_email . '</td>';
                                         echo '<td class="align-middle table-cells" >';
                                         echo '<a data-toggle="tooltip" title="Alterar" class="btn btn-outline-primary mr-3" href="' . $this->config->base_url() . 'Admin/Fornecedores/Alterar/' . $f->id_fornecedor . '"><i class="fas fa-pencil-alt"></i></a>';
-                                        echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Admin/Fornecedores/Deletar/' . $f->id_fornecedor . '"><i class="fas fa-times-circle"></i></a>';
+                                        if ($f->num_produtos > 0) {
+                                            echo '<span class="d-inline-block mr-3" tabindex="0" data-toggle="tooltip" title="Há produtos cadastrados com esse fornecedor!"><a class="disabled btn btn-outline-danger" href=""><i class="fas fa-times-circle"></i></a></span>';
+                                        } else {
+                                            echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Admin/Fornecedores/Deletar/' . $f->id_fornecedor . '"><i class="fas fa-times-circle"></i></a>';
+                                        }
                                         echo '</td>';
                                         echo '</tr>';
                                     }

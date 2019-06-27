@@ -66,8 +66,9 @@ class Anuncio extends CI_Controller
     public function deletar($id)
     {
         if ($id > 0) {
-
+            $anuncio = $this->ADManuncio_model->getOne($id);
             if ($this->ADManuncio_model->delete($id)) {
+                unlink('uploads/anuncios/'.$anuncio->img_imagem);
                 $this->session->set_flashdata('mensagem', 'Anuncio deletado com sucesso!!!');
             } else {
                 $this->session->set_flashdata('mensagem', 'Erro ao deletar anuncio...');

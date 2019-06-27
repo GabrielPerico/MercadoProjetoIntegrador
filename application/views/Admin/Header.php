@@ -47,6 +47,9 @@
           <li class="nav-item">
             <a class="nav-link" href="<?= $this->config->base_url() ?>Admin/Mercado">Mercado</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= $this->config->base_url() ?>Admin/Usuario/Registrar">Registrar ADMIN</a>
+          </li>
         </ul>
       </div>
     </div>

@@ -13,13 +13,13 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                     <form action="" method="post" class="form" enctype="multipart/form-data">
                         <table class="table semdatatable">
                             <tbody id="produtos">
-                                <tr>
+                                <tr id="row0">
                                     <th>
                                         <input placeholder="* Porcentagem" class="form-control form-control-lg rounded-0" type="number" id="nome" name="porcent[]" value="">
                                     </th>
                                     <th>
                                         <select class="form-control form-control-lg rounded-0" name="produto[]">
-                                            <option selected hidden value="">Selecione um produto</option>
+                                            <option selected hidden value="">Produto</option>
                                             <?php
                                             if (isset($produtos)) {
                                                 foreach ($produtos as $p) {
@@ -31,6 +31,11 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
                                             }
                                             ?>
                                         </select>
+                                    </th>
+                                    <th class="align-middle">
+                                        <a id="0" class="btn btn-outline-danger deleteRow" href="#">
+                                            <i class="far fa-times-circle"></i>
+                                        </a>
                                     </th>
                                 </tr>
                             </tbody>
@@ -49,4 +54,4 @@ echo (isset($mensagem) ? ' <div class="alert alert-danger" role="alert">' . $men
         </div>
     </div>
 </div>
-<meta name="produtos" content='<?= (isset($produtos))? json_encode($produtos) : '' ?>'>
+<meta name="produtos" content='<?= (isset($produtos)) ? json_encode($produtos) : '' ?>'>

@@ -9,11 +9,12 @@ if (!data.lenght > 0) {
 	start = data["dt_inicioDaPromocao"];
 	end = data["dt_fimDaPromocao"];
 }
-$(document).ready(function() {
+$(document).ready(function () {
 	var dt_inicio = $("#input1").val();
 	$("input[name=dtInicio]").val(dt_inicio);
 	var dt_fim = $("#input2").val();
 	$("input[name=dtFim]").val(dt_fim);
+
 });
 
 rome(input1, {
@@ -27,11 +28,12 @@ rome(input2, {
 	initialValue: end
 });
 
-$("#input1").blur(function() {
+$("#input1").blur(function () {
 	dt_inicio = $("#input1").val();
 	$("input[name=dtInicio]").val(dt_inicio);
 });
-$("#input2").blur(function() {
+$("#input2").blur(function () {
 	dt_fim = $("#input2").val();
 	$("input[name=dtFim]").val(dt_fim);
 });
+

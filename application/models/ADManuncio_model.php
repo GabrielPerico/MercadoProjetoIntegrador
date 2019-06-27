@@ -8,6 +8,12 @@ class ADManuncio_model extends CI_Model
         $query = $this->db->get('anuncios');
         return $query->result();
     }
+    public function getOne($id)
+    {
+        $this->db->where('id_anuncios', $id);
+        $query = $this->db->get('anuncios');
+        return $query->row();
+    }
     public function insert($data = array())
     {
         $this->db->insert('anuncios', $data);

@@ -4,7 +4,7 @@
 
         <div class="row">
 
-            <div class="col-md-8 pt-5">
+            <div class="col-md-6 pt-5">
                 <div class="mb-5 text-center pt-5">
 
                     <a class="fb-ic">
@@ -15,12 +15,18 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 pt-5">
+            <div class="col-md-6 pt-5">
                 <div class="mb-5 text-center pt-3 text-justify">
                     <h6>
                         Email: <?= $mercado->tx_email ?>
                         <br>
-                        Telefone: <?= $mercado->tx_telefone ?>
+                        Telefone 1: <?= $mercado->tx_telefone ?>
+                        <br>
+                        Telefone 2: <?= $mercado->tx_telefone2 ?>
+                        <br>
+                        Telefone 3: <?= $mercado->tx_telefone3 ?>
+                        <br>
+                        Telefone 4: <?= $mercado->tx_telefone4 ?>
                         <br>
                         Endereço: <?= $mercado->tx_endereco ?>
                     </h6>

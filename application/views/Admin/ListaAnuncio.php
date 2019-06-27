@@ -17,8 +17,8 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
                         <table class="table table-hover text-center mb-0">
                             <thead class="bg-nav text-white">
                                 <tr>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Imagem</th>
-                                    <th scope="col">Mostrar</th>
                                     <th scope="col">Ações</th>
                                 </tr>
                             </thead>
@@ -29,10 +29,12 @@ echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $men
 
                                     foreach ($anuncios as $a) {
                                         echo '<tr>';
+                                        echo '<td class="align-middle table-cells">';
+                                        echo ($a->sl_mostrar == 0)? '<p class="h3 text-danger">▬</p>' : '<p class="h3 text-success">▬</p>';
+                                        echo '</td>';
                                         echo '<td class="align-middle table-cells" ><img class="img-fluid img-produto" src="'.$this->config->base_url() . 'uploads/anuncios/' . $a->img_imagem . '"></td>';
                                         echo '<td class="align-middle table-cells" >';
-                                        echo ($a->sl_mostrar == 0)? '<a class="btn btn-danger px-4" href="' . $this->config->base_url() . 'Admin/Anuncio/Mostrar/' . $a->id_anuncios . '/1">Mostrar</a>' : '<a class="btn btn-success" href="' . $this->config->base_url() . 'Admin/Anuncio/Mostrar/' . $a->id_anuncios . '/0">Mostrando</a>';
-                                        echo '</td><td class="align-middle table-cells" >';
+                                        echo ($a->sl_mostrar == 0)? '<a data-toggle="tooltip" title="Mostrar" class="btn btn-outline-success px-3 mr-3" href="' . $this->config->base_url() . 'Admin/Anuncio/Mostrar/' . $a->id_anuncios . '/1"><i class="fas fa-lock"></i></i></a>' : '<a data-toggle="tooltip" title="Ocultar" class="btn btn-success mr-3" href="' . $this->config->base_url() . 'Admin/Anuncio/Mostrar/' . $a->id_anuncios . '/0"><i class="fas fa-lock-open"></i></a>';
                                         echo '<a data-toggle="tooltip" title="Deletar" class="btn btn-outline-danger mr-3" href="' . $this->config->base_url() . 'Admin/Anuncio/Deletar/' . $a->id_anuncios . '"><i class="fas fa-times-circle"></i></a>';
                                         echo '</td>';
                                         echo '</tr>';

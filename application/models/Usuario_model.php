@@ -26,7 +26,10 @@ class Usuario_model extends CI_Model
         $query = $this->db->get('usuario');
         return $query->row(0);
     }
-
+    public function insert($data = array()){
+        $this->db->insert('usuario', $data);
+        return $this->db->affected_rows();
+    }
     public function changePass($email, $senha)
     {
         if ($email) {

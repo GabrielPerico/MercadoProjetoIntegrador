@@ -32,6 +32,9 @@ class ADMpromocao_model extends CI_Model
     }
     public function delete($id)
     {
+        $this->db->where('ref_promocao', $id);
+        $this->db->delete('produtos_em_promocao');
+        
         $this->db->where('id_promocao', $id);
         $this->db->delete('promocao');
         return $this->db->affected_rows();
