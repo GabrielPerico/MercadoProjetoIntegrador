@@ -48,9 +48,9 @@
                     </div>
                 </div>
                 <div class="col-lg-13-24 col-sm-12 order-3 order-lg-2">
-                    <form action="#">
+                    <form method="post" action="<?= base_url('Procurar') ?>">
                         <div class="input-group w-100">
-                            <input type="text" class="form-control" style="width:60%;" placeholder="Procurar">
+                            <input name="procura" type="text" class="form-control" style="width:60%;" placeholder="Procurar">
 
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit">
